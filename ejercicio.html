@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <h2>Electrodomésticos</h2>
+            <br>
+            <div class="form-check form-check-inline px-3">
+                <input v-model="opcion" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                <label class="form-check-label h3" for="inlineRadio1">Televisor</label>
+            </div>
+            <div class="form-check form-check-inline px-3">
+                <input v-model="opcion" class="form-check-input h3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                <label class="form-check-label h3" for="inlineRadio2">Lavadora</label>
+            </div>
+            <div class="input-group mb-3 ">
+                <input v-model.number="cant" placeholder="Ingrese la cantidad a comprar" type="number" class="form-control h2" aria-label="Amount (to the nearest dollar)">
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <button @click="pagar" class="btn btn-primary btn-lg col-8">Comprar</button>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Electrodoméstico</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody v-if="arrayCompras.length">
+                    <tr v-for="item in arrayCompras">
+                        <td v-text="item.nombre"></td>
+                        <td v-text="item.cant"></td>
+                        <td v-text="item.precio"></td>
+                        <td v-text="item.total"></td>
+                    </tr>
+                </tbody>
+                <tbody v-else>
+                    <tr>
+                        <td colspan="4">NO hay ventas registradas</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<script src="js/sources/vue.js"></script>
+<script src="js/sources/sweetalert2.all.min.js"></script>
+<script src="js/ejercicio.js"></script>
+
+</html>
